@@ -5,8 +5,9 @@ class cloudfront_module
 	function __construct()
 	{
 		$pref = e107::pref('cloudfront');
+		$active = varset($pref['active'], e_UC_NOBODY);
 
-		if(empty($pref['active']) || empty($pref['cdn']))
+		if(!check_class($active) || empty($pref['cdn']))
 		{
 			return;
 		}

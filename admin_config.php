@@ -79,9 +79,10 @@ class cloudfront_ui extends e_admin_ui
 
 	//	protected $preftabs        = array('General', 'Other' );
 		protected $prefs = array(
-			'active'		=> array('title'=> 'Active', 'tab'=>0, 'type'=>'boolean', 'data' => 'str', 'help'=>'', 'writeParms' => []),
+			'active'		=> array('title'=> 'Active', 'tab'=>0, 'type'=>'userclass', 'data' => 'str', 'help'=>'Typically this should be set to "Everyone" after testing your site with "Main Admin" or "Admin"', 'writeParms' => ['classlist'=>'admin,main,public,nobody,no-excludes']),
 			'cdn'		    => array('title'=> 'Distribution domain name', 'tab'=>0, 'type'=>'text', 'data' => 'str', 'help'=>'eg. xxxxxxxx.cloudfront.net', 'writeParms' => ['placholder'=>'xxxxxxxx.cloudfront.net', 'size'=>'xxlarge']),
-		); 
+
+		);
 
 	
 		public function init()
@@ -134,9 +135,11 @@ class cloudfront_ui extends e_admin_ui
 		public function renderHelp()
 		{
 			$caption = LAN_HELP;
-			$text = "If you see CORS errors in the browser console - try modifying Cloudfront's 
-			<b>Response headers policy</b> (inside the Behaviors settings) to one of the following: 
-			<ul style='margin-top:7px'>
+			$text = "<p>When active, this plugin will modify specific URLs within e107 (img, js, css etc.) so that they are loaded from the <a href='https://aws.amazon.com/cloudfront/' title='Visit website' target='_blank'>Cloudfront</a> content delivery network.</p>
+
+			<p>If you see CORS errors in the browser console - try modifying Cloudfront's 
+			<b>Response headers policy</b> (inside the Behaviors settings) to one of the following:</p> 
+			<ul>
 				<li><b>CORS-With-Preflight</b></li>
 				<li><b>CORS-with-preflight-and-SecurityHead</b></li>
 			</ul>

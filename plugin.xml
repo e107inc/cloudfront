@@ -14,7 +14,7 @@
 		<link url="admin_config.php" description="" icon="images/icon_32.png" iconSmall="images/icon_16.png" icon128="images/icon_128.png" primary="true" >LAN_CONFIGURE</link>
 	</adminLinks>
 	<pluginPrefs>
-		<pref name='active'>0</pref>
+		<pref name='active'>255</pref>
 		<pref name='cdn'></pref>
 	</pluginPrefs>
 </e107Plugin>
