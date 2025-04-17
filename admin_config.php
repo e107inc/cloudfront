@@ -79,7 +79,7 @@ class cloudfront_ui extends e_admin_ui
 
 	//	protected $preftabs        = array('General', 'Other' );
 		protected $prefs = array(
-			'active'		=> array('title'=> 'Active', 'tab'=>0, 'type'=>'userclass', 'data' => 'str', 'help'=>'Typically this should be set to "Everyone" after testing your site with "Main Admin" or "Admin"', 'writeParms' => ['classlist'=>'admin,main,public,nobody,no-excludes']),
+			'active'		=> array('title'=> 'Active', 'tab'=>0, 'type'=>'userclass', 'data' => 'str', 'help'=>'Typically this should be set to "Everyone" after testing your site with "Main Admin" or "Admin"', 'writeParms' => ['classlist'=>'admin,main,public,guest,nobody,no-excludes']),
 			'cdn'		    => array('title'=> 'Distribution domain name', 'tab'=>0, 'type'=>'text', 'data' => 'str', 'help'=>'eg. xxxxxxxx.cloudfront.net', 'writeParms' => ['placholder'=>'xxxxxxxx.cloudfront.net', 'size'=>'xxlarge']),
 
 		);
@@ -136,7 +136,7 @@ class cloudfront_ui extends e_admin_ui
 		{
 			$caption = LAN_HELP;
 			$text = "<p>When active, this plugin will modify specific URLs within e107 (img, js, css etc.) so that they are loaded from the <a href='https://aws.amazon.com/cloudfront/' title='Visit website' target='_blank'>Cloudfront</a> content delivery network.</p>
-
+			<p>Policy: CachingOptimized</p>
 			<p>If you see CORS errors in the browser console - try modifying Cloudfront's 
 			<b>Response headers policy</b> (inside the Behaviors settings) to one of the following:</p> 
 			<ul>
